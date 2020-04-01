@@ -1,12 +1,3 @@
-// API for random login info
-// https://randomuser.me/
-// https://randomuser.me/api/?inc=login
-//fetch('https://randomuser.me/api/?inc=login').then(res => res.json().then(data => console.log(data.results[0].login.username)))
-
-// API for random avatars
-// https://avatars.dicebear.com/
-// https://avatars.dicebear.com/v2/gridy/username.svg?options[width][]=100&options[height][]=100
-
 $(document).ready(() => {
 
     function avatarAspectRatio() {
