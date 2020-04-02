@@ -1,0 +1,131 @@
+@import url("../global.css");
+
+body {
+	background-color: #e5e5e5;
+}
+
+.header-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	margin: 3em 5em;
+}
+
+.header-container .avatar-container {
+	display: flex;
+	align-items: center;
+}
+
+.header-container .avatar-container .avatar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	height: 100px;
+	width: 100px;
+
+	background-color: #fff;
+	border-radius: 50%;
+
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.35);
+}
+
+.header-container .avatar-container .avatar img {
+	max-width: 80%;
+	max-height: 80%;
+}
+
+.header-container .avatar-container h2 {
+	font-family: Roboto;
+	font-size: 24px;
+    font-weight: bold;
+    
+    margin-left: 1em;
+}
+
+.header-container button {
+	background-color: #eb1759;
+	border: none;
+	border-radius: 10px;
+	width: 300px;
+	height: 70px;
+
+	font-family: Roboto;
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+
+	transition: 0.3s;
+}
+
+.header-container button:hover {
+	transform: translate(0%, 5%) scale(1.05);
+	cursor: pointer;
+}
+
+.rooms-container {
+	display: flex;
+	justify-content: center;
+
+	margin: 5em;
+}
+
+.rooms-list {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 5em;
+
+	width: 100%;
+
+	list-style: none;
+}
+
+.rooms-list li {
+	display: flex;
+	justify-content: space-between;
+
+	background-color: #49289e;
+	border-radius: 10px;
+
+	padding: 2em;
+}
+
+.rooms-list li .room-data-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+
+	color: white;
+	font-family: Roboto;
+}
+
+.rooms-list li .room-data-container h2 {
+	font-size: 42px;
+}
+
+.rooms-list li .room-data-container h3 {
+	font-size: 24px;
+	font-weight: normal;
+}
+
+.rooms-list li .door-button-container button {
+	background-color: #7445ed;
+	border: none;
+	border-radius: 20px;
+	padding: 1.5em;
+
+	height: 200px;
+	width: 200px;
+
+	transition: 0.3s;
+}
+
+.rooms-list li .door-button-container button:hover {
+	transform: scale(1.05);
+	cursor: pointer;
+}
+
+.rooms-list li .door-button-container img {
+	height: 100%;
+}
