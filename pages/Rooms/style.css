@@ -2,19 +2,58 @@
 
 body {
 	background-color: #e5e5e5;
+	min-width: 350px;
+	min-height: 475px;
 }
 
 .header-container {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-end;
 
 	margin: 3em 5em;
 }
 
 .header-container .avatar-container {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
+}
+
+.avatar-container .username-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-evenly;
+
+	height: 100px;
+}
+
+.avatar-container .username-container h2 {
+	font-family: Roboto;
+	font-size: 24px;
+	font-weight: bold;
+	color: #49289e;
+}
+
+.avatar-container .username-container button {
+	background-color: #eb1759;
+	border: none;
+	border-radius: 10px;
+
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+
+	padding: 0 1em;
+	height: 40px;
+
+	transition: 0.3s;
+}
+
+.avatar-container .username-container button:hover {
+	transform: translate(0%, 5%) scale(1.05);
+	cursor: pointer;
 }
 
 .header-container .avatar-container .avatar {
@@ -24,6 +63,7 @@ body {
 
 	height: 100px;
 	width: 100px;
+	margin-left: 1.5em;
 
 	background-color: #fff;
 	border-radius: 50%;
@@ -36,39 +76,29 @@ body {
 	max-height: 80%;
 }
 
-.header-container .avatar-container h2 {
-	font-family: Roboto;
-	font-size: 24px;
-    font-weight: bold;
-    
-    margin-left: 1em;
-}
-
-.header-container button {
-	background-color: #eb1759;
-	border: none;
-	border-radius: 10px;
-	width: 300px;
-	height: 70px;
-
-	font-family: Roboto;
-	font-size: 24px;
-	font-weight: bold;
-	color: white;
-
-	transition: 0.3s;
-}
-
-.header-container button:hover {
-	transform: translate(0%, 5%) scale(1.05);
-	cursor: pointer;
-}
-
 .rooms-container {
 	display: flex;
 	justify-content: center;
 
-	margin: 5em;
+	padding: 0 0.5em;
+	margin: 0 5em 2em 5em;
+
+	overflow: auto;
+	overflow-y: scroll;
+	height: 70vh;
+}
+
+.rooms-container::-webkit-scrollbar {
+	width: 0.3em;
+	height: 0.3em;
+}
+
+.rooms-container::-webkit-scrollbar-thumb {
+	background-color: #eb1759;
+}
+
+.rooms-container::-webkit-scrollbar-corner {
+	background-color: none;
 }
 
 .rooms-list {
@@ -128,4 +158,19 @@ body {
 
 .rooms-list li .door-button-container img {
 	height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+	.header-container {
+		margin: 2em 1em;
+	}
+
+	.rooms-container {
+		margin: 0 1em 1em 1em;
+	}
+
+	.rooms-list {
+		grid-template-columns: 1fr;
+		gap: 1em;
+	}
 }
