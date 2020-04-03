@@ -1,2 +1,2 @@
-# BCDV1008-FinalAssignment
-Final Assignment for BCDV1008
+# BCDV1008-FinalProject
+Final Project for BCDV1008
