@@ -4,6 +4,7 @@ body {
 	background-color: #e5e5e5;
 	min-width: 350px;
 	min-height: 475px;
+	font-family: Roboto;
 }
 
 .header-container {
@@ -29,7 +30,6 @@ body {
 }
 
 .avatar-container .username-container h2 {
-	font-family: Roboto;
 	font-size: 24px;
 	font-weight: bold;
 	color: #49289e;
@@ -40,7 +40,6 @@ body {
 	border: none;
 	border-radius: 10px;
 
-	font-family: Roboto;
 	font-size: 16px;
 	font-weight: bold;
 	color: white;
@@ -127,7 +126,6 @@ body {
 	justify-content: space-evenly;
 
 	color: white;
-	font-family: Roboto;
 }
 
 .rooms-list li .room-data-container h2 {
@@ -172,5 +170,22 @@ body {
 	.rooms-list {
 		grid-template-columns: 1fr;
 		gap: 1em;
+	}
+
+	.rooms-list li {
+		padding: 1em;
+	}
+
+	.rooms-list li .room-data-container h2 {
+		font-size: 36px;
+	}
+	
+	.rooms-list li .room-data-container h3 {
+		font-size: 18px;
+	}
+
+	.rooms-list li .door-button-container button {
+		height: 150px;
+		width: 150px;
 	}
 }
