@@ -10,8 +10,8 @@ block content
             div(class="content-items")
                 div(class="avatar")
                     img(id="avatarImg" src="#" alt="avatar")
-                div(class="form")
+                form(action="/session", method="post" class="form")
                     h1 Full Chat
                     input(type="text" name="username" id="username" placeholder="Username")
                     a(href="rooms")
-                        button Get Started
+                        button(id="getStarted") Get Started

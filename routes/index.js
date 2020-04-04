@@ -1,13 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Full Chat' });
-});
+const loginController = require('../controllers/loginController');
 
-router.get('/index', function(req, res, next) {
-  res.render('index', { title: 'Full Chat' });
-});
+router.get('/', loginController.index);
 
+router.get('/index', loginController.index);
+
+router.post('/session', loginController.session);
 
 module.exports = router;

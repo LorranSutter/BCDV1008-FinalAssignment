@@ -1,8 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
+const { celebrate, Segments, Joi } = require('celebrate');
 
-router.get('/', function(req, res, next) {
-  res.render('rooms', { title: 'Rooms' });
-});
+const roomsController = require('../controllers/roomsController');
+
+router.get('/', celebrate({
+  [Segments.HEADERS]: Joi.object().keys({
+    username: Joi.string().required(),
+  })
+}), roomsController.index);
 
 module.exports = router;
