@@ -1,0 +1,68 @@
+extends layout
+
+block head-content
+    link(rel="stylesheet" href="/style/chat.css")
+    script(src="/js/chat.js")
+
+block content
+    header(class="header-container")
+        a(href="rooms")
+            button Change Room
+    main(class="chat-container")
+        div(class="chat-list-container")
+            div(class="chat-msg")
+                img(src="/img/avatarDefault.png" alt="Avatar")
+                div(class="username-msg-wrapper")
+                    span(class="username-msg") Username
+                    span(class="msg") Hey! What r u doing? Hey! What r u doing? Hey! What r u doing? Hey! What r u doing? Hey! What r u doing? Hey! What r u doing? Hey! What r u doing? Hey! What r u doing?
+                span(class="timestamp-msg") Apr 2nd 2020, 4:42:54 pm
+
+            div(class="chat-msg")
+                img(src="/img/avatarDefault.png" alt="Avatar")
+                div(class="username-msg-wrapper")
+                    span(class="username-msg") Username
+                    span(class="msg") Hey! What r u doing?
+                span(class="timestamp-msg") Apr 2nd 2020, 4:42:54 pm
+
+            span(class="user-join-left") Username03 joined
+            div(class="chat-msg")
+                img(src="/img/avatarDefault.png" alt="Avatar")
+                div(class="username-msg-wrapper")
+                    span(class="username-msg") Username
+                    span(class="msg") Hey! What r u doing?
+                span(class="timestamp-msg") Apr 2nd 2020, 4:42:54 pm
+
+            span(class="user-join-left") Username03 left
+
+            div(class="chat-msg")
+                img(src="/img/avatarDefault.png" alt="Avatar")
+                div(class="username-msg-wrapper")
+                    span(class="username-msg") Username
+                    span(class="msg") Hey! What r u doing?
+                span(class="timestamp-msg") Apr 2nd 2020, 4:42:54 pm
+
+            span(class="user-join-left") Username03 left
+
+            div(class="chat-msg")
+                img(src="/img/avatarDefault.png" alt="Avatar")
+                div(class="username-msg-wrapper")
+                    span(class="username-msg") Username
+                    span(class="msg") Hey! What r u doing?
+                span(class="timestamp-msg") Apr 2nd 2020, 4:42:54 pm
+
+            span(class="user-join-left") Username03 joined
+
+            div(class="chat-msg")
+                img(src="/img/avatarDefault.png" alt="Avatar")
+                div(class="username-msg-wrapper")
+                    span(class="username-msg") Username
+                    span(class="msg") Hey! What r u doing?
+                span(class="timestamp-msg") Apr 2nd 2020, 4:42:54 pm
+
+            span(class="user-join-left") Username03 left
+
+        div(class="input-msg-container")
+            p User is typing...
+            div(class="send-msg-wrapper")
+                input(type="text" name="msg" id="msg" placeholder="Write your message...")
+                button Send

@@ -1,0 +1,26 @@
+extends layout
+
+block head-content
+    link(rel="stylesheet" href="/style/rooms.css")
+    script(src="/js/rooms.js")
+
+block content
+    header(class="header-container")
+        div(class="avatar-container")
+            div(class="username-container")
+                h2 Username
+                a(href="/")
+                    button Change Username
+            div(class="avatar")
+                img(id="avatarImg" src="/img/avatarDefault.png" alt="avatar")
+    main(class="rooms-container")
+        ul(class="rooms-list")
+            each elem in [1,2,3,4,5,6,7,8,9]
+                li
+                    div(class="room-data-container")
+                        h2 Room #{elem}
+                        h3 57 users
+                    div(class="door-button-container")
+                        a(href="chat")
+                            button
+                                img(src="/img/opened-door.png" alt="Get into the room")
