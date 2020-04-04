@@ -24,4 +24,8 @@ $(document).ready(() => {
         const username = $('#username').val();
         $('#avatarImg').attr('src', `https://avatars.dicebear.com/v2/gridy/${username}.svg?options[width][]=500&options[height][]=500`);
     })
+
+    var socket = io.connect(window.location.origin);
+
+    socket.emit('connected');
 })
