@@ -6,6 +6,8 @@ router.get('/', loginController.index);
 
 router.get('/index', loginController.index);
 
-router.post('/session', loginController.session);
+router.get('/login', loginController.index);
+
+// router.post('/session', loginController.session);
 
 module.exports = router;
