@@ -63,6 +63,7 @@ block content
 
         div(class="input-msg-container")
             p User is typing...
-            div(class="send-msg-wrapper")
-                input(type="text" name="msg" id="msg" placeholder="Write your message...")
+            //- div(class="send-msg-wrapper")
+            form(id="chat-form" class="chat-form")
+                input(type="text" name="msg" id="msg" placeholder="Write your message..." autocomplete="off")
                 button Send
