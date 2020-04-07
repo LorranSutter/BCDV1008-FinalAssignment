@@ -10,10 +10,11 @@ block content
             div(class="content-items")
                 div(class="avatar")
                     img(id="avatarImg" src="#" alt="avatar")
-                form(action="/rooms", method="post" class="form")
-                    h1 Full Chat
-                    input(type="text" name="username" id="username" placeholder="Username")
-                    a(href="rooms")
-                        button(id="getStarted") Get Started
-                    a(href="" class="show-history")
+                div(class="side-container")
+                    form(action="/rooms", method="post" class="form")
+                        h1 Full Chat
+                        input(type="text" name="username" id="username" placeholder="Username")
+                        a(href="rooms")
+                            button(id="getStarted") Get Started
+                    a(href="admin" class="admin-page")
                         button Admin

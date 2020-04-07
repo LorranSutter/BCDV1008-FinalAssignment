@@ -22,6 +22,7 @@ $(document).ready(() => {
 
     $('#username').on('keyup', () => {
         const username = $('#username').val();
-        $('#avatarImg').attr('src', `https://avatars.dicebear.com/v2/gridy/${username}.svg?options[width][]=500&options[height][]=500`);
+        const avatarAPI = `https://avatars.dicebear.com/v2/gridy/${username}.svg?options[width][]=500&options[height][]=500`;
+        $('#avatarImg').attr('src', avatarAPI);
     })
 })
