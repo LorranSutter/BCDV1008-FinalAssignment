@@ -107,7 +107,6 @@ const io = require("socket.io")(server)
 io.on('connection', socket => {
   console.log('Connected...');
   //console.log(`Socket: ${socket.id}`);
-  console.log(socket);
   // ioDB.historySocketCreate(socket)
 
   socket.on('connected', ({ username }) => {
@@ -127,7 +126,7 @@ io.on('connection', socket => {
     ioDB.historySocketCreate(username, room, 'joined the room', Date.now());
 
     // Current user
-    socket.emit('message', formatMessage(username, 'Welcome to Chat'));
+    socket.emit('messageJoinLeft', formatMessage(username, 'Welcome to Chat'));
 
     // Broadcast when a user connects
     socket.broadcast

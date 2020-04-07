@@ -25,4 +25,11 @@ $(document).ready(() => {
         const avatarAPI = `https://avatars.dicebear.com/v2/gridy/${username}.svg?options[width][]=500&options[height][]=500`;
         $('#avatarImg').attr('src', avatarAPI);
     })
+
+    const socket = io.connect(window.location.origin);
+
+    $('#getStarted').on('click', () => {
+        const username = $('#username').val();
+        socket.emit('connected', { username });
+    });
 })
