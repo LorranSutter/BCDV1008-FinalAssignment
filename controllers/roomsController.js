@@ -22,8 +22,8 @@ exports.roomsLogin = async (req, res, next) => {
     res.render('rooms',
         {
             title: 'Rooms',
-            username: req.cookies.username,
-            avatar: req.cookies.avatar,
+            username: username,
+            avatar: avatar,
             roomsList: roomsList
         });
 }
