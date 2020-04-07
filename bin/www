@@ -9,7 +9,7 @@ const debug = require('debug')('bcdv1008-finalproject:server');
 const http = require('http');
 const mongoose = require('mongoose');
 
-const History = require('../models/history');
+const HistoryChat = require('../models/HistoryChat');
 const formatMessage = require('../exports/messages');
 const {
   userJoin,
@@ -136,7 +136,7 @@ io.on('connection', socket => {
   // Listen for chatMessage
   socket.on('chatMessage', msg => {
 
-    const newHistory = new History(
+    const newHistory = new HistoryChat(
       {
         user: msg.user,
         room: mongoose.Types.ObjectId(msg.room),

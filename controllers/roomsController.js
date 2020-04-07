@@ -1,4 +1,4 @@
-const Room = require('../models/room');
+const Room = require('../models/Room');
 
 exports.index = async (req, res, next) => {
     const roomsList = await Room.find();

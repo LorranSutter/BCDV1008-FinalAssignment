@@ -1,16 +1,19 @@
 const async = require('async');
-const Room = require('./models/room');
-const History = require('./models/history');
+const Room = require('./models/Room');
+const HistoryChat = require('./models/HistoryChat');
+const HistorySocket = require('./models/HistorySocket');
 
-const InitiateMongoServer = require("./config/db");
+const InitiateMongoServer = require("./db/config");
 const mongoose = require('mongoose');
 
 // Initiate Mongo Server
 InitiateMongoServer();
 
 const numOfMsg = 50;
+const numOfSocketEvents = 20;
 let rooms = [];
-let histories = [];
+let historiesChat = [];
+let historiesSocket = [];
 
 const roomsList = [
     'Batcave',
@@ -76,6 +79,10 @@ function getRandomMsg() {
     return msgList[parseInt(Math.random() * msgList.length)];
 }
 
+function randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  }
+
 function roomCreate(name, cb) {
     let room = new Room({ name });
 
@@ -89,22 +96,42 @@ function roomCreate(name, cb) {
     });
 }
 
-function historyCreate(user, room, message, cb) {
-    let history = new History(
+function historyChatCreate(user, room, message, date, cb) {
+    let historyChat = new HistoryChat(
         {
             user,
             room,
-            message
+            message,
+            date
         }
     );
 
-    history.save(function (err) {
+    historyChat.save(function (err) {
         if (err) {
             throw err;
         }
-        console.log('New history: ' + history.message);
-        histories.push(history);
-        cb(null, history);
+        console.log('New history chat: ' + historyChat.message);
+        historiesChat.push(historyChat);
+        cb(null, historyChat);
+    });
+}
+
+function historySocketCreate(user, room, event, cb) {
+    let historySocket = new HistorySocket(
+        {
+            user,
+            room,
+            event
+        }
+    );
+
+    historySocket.save(function (err) {
+        if (err) {
+            throw err;
+        }
+        console.log('New history socket: ' + historySocket.event);
+        historiesSocket.push(historySocket);
+        cb(null, historySocket);
     });
 }
 
@@ -117,19 +144,34 @@ function populateRooms(cb) {
     async.series(roomsCreateArray, cb);
 }
 
-function populateHistory(cb) {
-    let historyCreateArray = []
+function populateHistoryChat(cb) {
+    let historyChatCreateArray = []
     for (let i = 0; i < numOfMsg; i++) {
-        historyCreateArray
-            .push(cb => historyCreate(getRandomUser(), getRandomRoomObj(), getRandomMsg(), cb));
+        historyChatCreateArray
+            .push(cb => historyChatCreate(getRandomUser(), getRandomRoomObj(), getRandomMsg(), randomDate(new Date(2020,3,30),new Date(2020,4,6)), cb));
     }
 
-    async.parallel(historyCreateArray, cb);
+    async.parallel(historyChatCreateArray, cb);
+}
+
+function populateHistorySocket(cb) {
+    let historySocketCreateArray = []
+    for (let i = 0; i < numOfSocketEvents; i++) {
+        let user = getRandomUser();
+        let room = getRandomRoomObj();
+        historySocketCreateArray.push(cb => historySocketCreate(user, null, "new socket connection", cb));
+        historySocketCreateArray.push(cb => historySocketCreate(user, null, "socket disconnection", cb));
+        historySocketCreateArray.push(cb => historySocketCreate(user, room, "joined the room", cb));
+        historySocketCreateArray.push(cb => historySocketCreate(user, room, "has leaved the room", cb));
+    }
+
+    async.parallel(historySocketCreateArray, cb);
 }
 
 async.series([
     populateRooms,
-    populateHistory
+    populateHistoryChat,
+    populateHistorySocket
 ],
     // Optional callback
     function (err, results) {
@@ -138,7 +180,7 @@ async.series([
         }
         else {
             console.log('Rooms Instances: ' + rooms.length);
-            console.log('History Instances: ' + histories.length);
+            console.log('History Instances: ' + historiesChat.length);
         }
         // All done, disconnect from database
         mongoose.connection.close();

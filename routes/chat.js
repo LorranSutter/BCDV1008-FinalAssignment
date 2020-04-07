@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { celebrate, Segments, Joi } = require('celebrate');
 
 const auth = require('../middlewares/auth');
 const chatController = require('../controllers/chatController');

@@ -8,6 +8,4 @@ router.get('/index', loginController.index);
 
 router.get('/login', loginController.index);
 
-// router.post('/session', loginController.session);
-
 module.exports = router;

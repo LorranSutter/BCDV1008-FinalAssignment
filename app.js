@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const InitiateMongoServer = require("./config/db");
+const InitiateMongoServer = require("./db/config");
 
 // Initiate Mongo Server
 InitiateMongoServer();
