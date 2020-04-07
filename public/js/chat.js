@@ -8,16 +8,12 @@ $(document).ready(() => {
     const roomName = document.getElementById('room-name');
     const userList = document.getElementById('users');
 
-    // Get username and room from URL
     // const queryString = window.location.search;
     // const urlParams = new URLSearchParams(queryString);
     // const username = urlParams.get('username');
     // const room = urlParams.get('room');
     const username = document.cookie.replace(/(?:(?:^|.*;\s*)username\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     const room = document.cookie.replace(/(?:(?:^|.*;\s*)roomId\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-
-    // Make connection
-    // socket = io.connect('http://localhost:3000');
 
     socket.on('connection', data => {
         console.log('Connected....')
