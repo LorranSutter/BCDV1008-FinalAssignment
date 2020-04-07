@@ -9,7 +9,7 @@ const debug = require('debug')('bcdv1008-finalproject:server');
 const http = require('http');
 const mongoose = require('mongoose');
 
-const HistoryChat = require('../models/HistoryChat');
+const ioDB = require('../db/io');
 const formatMessage = require('../exports/messages');
 const {
   userJoin,
@@ -136,23 +136,7 @@ io.on('connection', socket => {
   // Listen for chatMessage
   socket.on('chatMessage', msg => {
 
-    const newHistory = new HistoryChat(
-      {
-        user: msg.user,
-        room: mongoose.Types.ObjectId(msg.room),
-        message: msg.msg,
-        date: msg.date
-      }
-    );
-
-    newHistory.save((err) => {
-      if (err) {
-        throw err;
-      }
-      console.log('New history: ' + newHistory.message);
-    });
-
-    // const user = getCurrentUser(socket.id);
+    ioDB.historyChatCreate(msg.user, mongoose.Types.ObjectId(msg.room), msg.msg, msg.date);
 
     io
       .to(msg.room)

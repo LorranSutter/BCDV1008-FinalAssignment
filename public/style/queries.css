@@ -45,9 +45,10 @@ body {
 }
 
 .history-container {
+	display: flex;
 	justify-content: center;
 
-	padding: 0 0.5em 0.5em 0;
+	padding: 0 0.5em;
 
 	overflow: auto;
 	overflow-y: scroll;
@@ -67,33 +68,13 @@ body {
 	background-color: none;
 }
 
-.history-container .room-filter {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 2em;
-}
-
-.history-container .room-filter select {
-	background-color: #eb1759;
-	border: none;
-	border-radius: 10px;
-
-	font-size: 16px;
-	font-weight: bold;
-	color: white;
-
-	padding: 0 1em;
-	height: 40px;
-	width: 175px;
-}
-
 .history-table {
-	border-collapse: collapse;
-	width: 100%;
+    border-collapse: collapse;
 }
 
 .history-table th, td {
-    padding: 0.4em;
+	padding: 0.4em;
+	text-align: center;
 
     background-color: transparent;    
     border-bottom: 1px solid;
