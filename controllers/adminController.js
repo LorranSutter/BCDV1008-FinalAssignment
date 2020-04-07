@@ -9,12 +9,16 @@ exports.index = async (req, res, next) => {
         // .limit(10)
         .find()
         .populate('room')
-        .sort({ 'date': 1 });
+        .sort({ 'date': -1 });
+
+    let userList = historyList.map(x => x.user);
+    userList = [...new Set(userList)]
 
     res.render('admin',
         {
             title: 'Admin',
             roomList: roomList,
+            userList: userList,
             historyList: historyList
         }
     );
@@ -22,9 +26,27 @@ exports.index = async (req, res, next) => {
 
 exports.partialHistory = async (req, res, next) => {
     const historyList = await HistoryChat
-        .find(req.query.roomId ? { "room": req.query.roomId } : {})
+        .find({
+            $and: [
+                req.query.user ? { "user": req.query.user } : {},
+                req.query.roomId ? { "room": req.query.roomId } : {}
+            ]
+        })
         .populate('room')
-        .sort({ 'date': 1 });
+        .sort({ 'date': -1 });
+
+    // let query = {}
+    // if (!req.query.roomId) {
+    //     query["room"] = req.query.roomId;
+    // }
+    // if (!req.query.username) {
+    //     query["user"] = req.query.user;
+    // }
+
+    // const historyList = await HistoryChat
+    //     .find(req.query.roomId ? { "room": req.query.roomId } : {})
+    //     .populate('room')
+    //     .sort({ 'date': -1 });
 
     res.render('historyPartial',
         {
@@ -41,7 +63,7 @@ exports.socketEvents = async (req, res, next) => {
         // .skip(50)
         // .limit(10)
         .populate('room')
-        .sort({ 'date': 1 });
+        .sort({ 'date': -1 });
 
     res.render('socketEvents',
         {

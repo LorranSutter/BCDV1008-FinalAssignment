@@ -13,8 +13,11 @@ block content
             a(href="/")
                 button Back to Login
     main(class="history-container")
-        //- form(action="", method="get" class="form-filter")
         div(class="room-filter")
+            select(name="user-list" id="User-list")
+                option(value=undefined) All users
+                each user in userList
+                    option(id=`${user}` value=`${user}`)= user
             select(name="Room-list" id="Room-list")
                 option(value='All rooms') All rooms
                 each room in roomList

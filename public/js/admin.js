@@ -6,11 +6,12 @@ $(document).ready(() => {
         $('#avatarImg').attr('src', avatarAPI);
     });
 
-    $('#Room-list').on('change', () => {
+    $('#User-list, #Room-list').on('change', () => {
+        const user = $('#User-list').find(":selected").attr('value');
         const roomId = $('#Room-list').find(":selected").attr('id');
 
         $.get("/admin/partialHistory",
-            { roomId: roomId },
+            { user: user, roomId: roomId },
             (data) => {
                 $('#history-container').html(data);
             })
