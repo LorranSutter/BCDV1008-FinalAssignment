@@ -14,9 +14,9 @@ const historySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    date_message: {
+    date: {
         type: Date,
-        default: Date.now,
+        default: () => { return new Date() },
         required: true
     }
 });

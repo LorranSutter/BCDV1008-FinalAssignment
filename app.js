@@ -4,11 +4,18 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const InitiateMongoServer = require("./config/db");
+
+// Initiate Mongo Server
+InitiateMongoServer();
+
 const indexRouter = require('./routes/index');
 const roomsRouter = require('./routes/rooms');
 const chatRouter = require('./routes/chat');
 
 const app = express();
+
+app.locals.moment = require('moment');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
