@@ -155,7 +155,7 @@ function populateHistoryChat(cb) {
     let historyChatCreateArray = []
     for (let i = 0; i < numOfMsg; i++) {
         historyChatCreateArray
-            .push(cb => historyChatCreate(getRandomUser(), getRandomRoomObj(), getRandomMsg(), randomDate(new Date(2020, 3, 30), new Date(2020, 4, 6)), cb));
+            .push(cb => historyChatCreate(getRandomUser(), getRandomRoomObj(), getRandomMsg(), randomDate(new Date(2020, 1, 30), new Date(2020, 2, 6)), cb));
     }
 
     async.parallel(historyChatCreateArray, cb);
@@ -167,7 +167,7 @@ function populateHistorySocket(cb) {
 
         let user = getRandomUser();
         let room = getRandomRoomObj();
-        let dateConnect = randomDate(new Date(2020, 3, 30), new Date(2020, 4, 6));
+        let dateConnect = randomDate(new Date(2020, 1, 30), new Date(2020, 2, 6));
         let dateJoin = moment(dateConnect).add(randomInt(1, 30).toString(), 'm').toDate();
         let dateLeft = moment(dateJoin).add(randomInt(1, 30).toString(), 'm').toDate();
         let dateDisconnect = moment(dateLeft).add(randomInt(1, 30).toString(), 'm').toDate();
@@ -175,7 +175,7 @@ function populateHistorySocket(cb) {
         historySocketCreateArray.push(cb => historySocketCreate(user, null, "new socket connection", dateConnect, cb));
         historySocketCreateArray.push(cb => historySocketCreate(user, null, "socket disconnection", dateDisconnect, cb));
         historySocketCreateArray.push(cb => historySocketCreate(user, room, "joined the room", dateJoin, cb));
-        historySocketCreateArray.push(cb => historySocketCreate(user, room, "has leaved the room", dateLeft, cb));
+        historySocketCreateArray.push(cb => historySocketCreate(user, room, "has left the room", dateLeft, cb));
     }
 
     async.parallel(historySocketCreateArray, cb);

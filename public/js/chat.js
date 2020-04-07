@@ -1,7 +1,7 @@
 $(document).ready(() => {
     const socket = io.connect(window.location.origin);
 
-    socket.emit('connected');
+    // socket.emit('connected');
 
     const chatForm = document.getElementById('chat-form');
     const chatMessages = document.querySelector('.chat-list-container');
@@ -15,10 +15,10 @@ $(document).ready(() => {
     const username = document.cookie.replace(/(?:(?:^|.*;\s*)username\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     const room = document.cookie.replace(/(?:(?:^|.*;\s*)roomId\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
-    socket.on('connection', data => {
-        console.log('Connected....')
-        socket.emit('clientmessage', { message: 'Ohhhh!' });
-    });
+    // socket.on('connection', data => {
+    //     console.log('Connected....')
+    //     // socket.emit('clientmessage', { message: 'Ohhhh!' });
+    // });
 
     // Join chatroom
     socket.emit('joinRoom', { username, room });
