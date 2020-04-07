@@ -51,6 +51,6 @@ function historySocketCreate(user, room, message, date) {
 
 module.exports = {
     roomCreate,
-    historyChat,
-    historySocket
+    historyChatCreate,
+    historySocketCreate
 }
