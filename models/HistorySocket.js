@@ -20,4 +20,4 @@ const historySocketSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('historySocket', historySocketSchema);
+module.exports = mongoose.model('HistorySocket', historySocketSchema);

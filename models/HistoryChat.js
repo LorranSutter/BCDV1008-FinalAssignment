@@ -21,4 +21,4 @@ const historyChatSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('historyChat', historyChatSchema);
+module.exports = mongoose.model('HistoryChat', historyChatSchema);

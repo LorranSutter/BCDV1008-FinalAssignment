@@ -2,8 +2,8 @@ const async = require('async');
 const moment = require('moment');
 
 const room = require('./models/room');
-const historyChat = require('./models/historyChat');
-const historySocket = require('./models/historySocket');
+const HistoryChat = require('./models/HistoryChat');
+const HistorySocket = require('./models/HistorySocket');
 
 const InitiateMongoServer = require("./db/config");
 const mongoose = require('mongoose');
@@ -103,7 +103,7 @@ function roomCreate(name, cb) {
 }
 
 function historyChatCreate(user, room, message, date, cb) {
-    let newHistoryChat = new historyChat(
+    let newHistoryChat = new HistoryChat(
         {
             user,
             room,
@@ -123,7 +123,7 @@ function historyChatCreate(user, room, message, date, cb) {
 }
 
 function historySocketCreate(user, room, event, date, cb) {
-    let newHistorySocket = new historySocket(
+    let newHistorySocket = new HistorySocket(
         {
             user,
             room,
