@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const Room = require('../models/Room');
-const HistoryChat = require('../models/HistoryChat');
+const room = require('../models/room');
+const historyChat = require('../models/historyChat');
 
 exports.index = async (req, res, next) => {
-    const room = await Room.findById(req.params.roomId);
-    const msgList = await HistoryChat.find(
+    const chatRoom = await room.findById(req.params.roomId);
+    const msgList = await historyChat.find(
         { room: mongoose.Types.ObjectId(req.params.roomId) },
         { _id: -1, user: 1, room: -1, message: 1, date: 1 }
     ).sort({ 'date': 1 });
@@ -15,7 +15,7 @@ exports.index = async (req, res, next) => {
     res.render('chat',
         {
             title: 'Chat',
-            room: room,
+            room: chatRoom,
             msgList: msgList
         }
     );

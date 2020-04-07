@@ -7,7 +7,7 @@ const historyChatSchema = new mongoose.Schema({
     },
     room: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Room',
+        ref: 'room',
         required: true
     },
     message: {
@@ -21,4 +21,4 @@ const historyChatSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('HistoryChat', historyChatSchema, 'HistoryChat');
+module.exports = mongoose.model('historyChat', historyChatSchema);

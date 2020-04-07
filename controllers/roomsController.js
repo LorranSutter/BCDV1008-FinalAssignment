@@ -1,7 +1,7 @@
-const Room = require('../models/Room');
+const room = require('../models/room');
 
 exports.index = async (req, res, next) => {
-    const roomsList = await Room.find();
+    const roomsList = await room.find();
     res.render('rooms',
         {
             title: 'Rooms',
@@ -18,7 +18,7 @@ exports.roomsLogin = async (req, res, next) => {
     res.cookie('username', username);
     res.cookie('avatar', avatar);
 
-    const roomsList = await Room.find();
+    const roomsList = await room.find();
     res.render('rooms',
         {
             title: 'Rooms',

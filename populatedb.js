@@ -1,7 +1,9 @@
 const async = require('async');
-const Room = require('./models/Room');
-const HistoryChat = require('./models/HistoryChat');
-const HistorySocket = require('./models/HistorySocket');
+const moment = require('moment');
+
+const room = require('./models/room');
+const historyChat = require('./models/historyChat');
+const historySocket = require('./models/historySocket');
 
 const InitiateMongoServer = require("./db/config");
 const mongoose = require('mongoose');
@@ -81,23 +83,27 @@ function getRandomMsg() {
 
 function randomDate(start, end) {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-  }
+}
+
+function randomInt(start, end) {
+    return parseInt(Math.random() * (end + 1 - start) + start)
+}
 
 function roomCreate(name, cb) {
-    let room = new Room({ name });
+    let newRoom = new room({ name });
 
-    room.save(function (err) {
+    newRoom.save(function (err) {
         if (err) {
             throw err;
         }
-        console.log('New Room: ' + room.name);
-        rooms.push(room);
-        cb(null, room);
+        console.log('New Room: ' + newRoom.name);
+        rooms.push(newRoom);
+        cb(null, newRoom);
     });
 }
 
 function historyChatCreate(user, room, message, date, cb) {
-    let historyChat = new HistoryChat(
+    let newHistoryChat = new historyChat(
         {
             user,
             room,
@@ -106,32 +112,33 @@ function historyChatCreate(user, room, message, date, cb) {
         }
     );
 
-    historyChat.save(function (err) {
+    newHistoryChat.save(function (err) {
         if (err) {
             throw err;
         }
-        console.log('New history chat: ' + historyChat.message);
-        historiesChat.push(historyChat);
-        cb(null, historyChat);
+        console.log('New history chat: ' + newHistoryChat.message);
+        historiesChat.push(newHistoryChat);
+        cb(null, newHistoryChat);
     });
 }
 
-function historySocketCreate(user, room, event, cb) {
-    let historySocket = new HistorySocket(
+function historySocketCreate(user, room, event, date, cb) {
+    let newHistorySocket = new historySocket(
         {
             user,
             room,
-            event
+            event,
+            date
         }
     );
 
-    historySocket.save(function (err) {
+    newHistorySocket.save(function (err) {
         if (err) {
             throw err;
         }
-        console.log('New history socket: ' + historySocket.event);
-        historiesSocket.push(historySocket);
-        cb(null, historySocket);
+        console.log('New history socket: ' + newHistorySocket.event);
+        historiesSocket.push(newHistorySocket);
+        cb(null, newHistorySocket);
     });
 }
 
@@ -148,7 +155,7 @@ function populateHistoryChat(cb) {
     let historyChatCreateArray = []
     for (let i = 0; i < numOfMsg; i++) {
         historyChatCreateArray
-            .push(cb => historyChatCreate(getRandomUser(), getRandomRoomObj(), getRandomMsg(), randomDate(new Date(2020,3,30),new Date(2020,4,6)), cb));
+            .push(cb => historyChatCreate(getRandomUser(), getRandomRoomObj(), getRandomMsg(), randomDate(new Date(2020, 3, 30), new Date(2020, 4, 6)), cb));
     }
 
     async.parallel(historyChatCreateArray, cb);
@@ -157,12 +164,18 @@ function populateHistoryChat(cb) {
 function populateHistorySocket(cb) {
     let historySocketCreateArray = []
     for (let i = 0; i < numOfSocketEvents; i++) {
+
         let user = getRandomUser();
         let room = getRandomRoomObj();
-        historySocketCreateArray.push(cb => historySocketCreate(user, null, "new socket connection", cb));
-        historySocketCreateArray.push(cb => historySocketCreate(user, null, "socket disconnection", cb));
-        historySocketCreateArray.push(cb => historySocketCreate(user, room, "joined the room", cb));
-        historySocketCreateArray.push(cb => historySocketCreate(user, room, "has leaved the room", cb));
+        let dateConnect = randomDate(new Date(2020, 3, 30), new Date(2020, 4, 6));
+        let dateJoin = moment(dateConnect).add(randomInt(1, 30).toString(), 'm').toDate();
+        let dateLeft = moment(dateJoin).add(randomInt(1, 30).toString(), 'm').toDate();
+        let dateDisconnect = moment(dateLeft).add(randomInt(1, 30).toString(), 'm').toDate();
+
+        historySocketCreateArray.push(cb => historySocketCreate(user, null, "new socket connection", dateConnect, cb));
+        historySocketCreateArray.push(cb => historySocketCreate(user, null, "socket disconnection", dateDisconnect, cb));
+        historySocketCreateArray.push(cb => historySocketCreate(user, room, "joined the room", dateJoin, cb));
+        historySocketCreateArray.push(cb => historySocketCreate(user, room, "has leaved the room", dateLeft, cb));
     }
 
     async.parallel(historySocketCreateArray, cb);
@@ -180,7 +193,8 @@ async.series([
         }
         else {
             console.log('Rooms Instances: ' + rooms.length);
-            console.log('History Instances: ' + historiesChat.length);
+            console.log('History Chat Instances: ' + historiesChat.length);
+            console.log('History Socket Instances: ' + historiesSocket.length);
         }
         // All done, disconnect from database
         mongoose.connection.close();

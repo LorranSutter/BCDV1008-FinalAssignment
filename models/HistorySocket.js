@@ -7,7 +7,7 @@ const historySocketSchema = new mongoose.Schema({
     },
     room: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Room'
+        ref: 'room'
     },
     event: {
         type: String,
@@ -20,4 +20,4 @@ const historySocketSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('HistorySocket', historySocketSchema, 'HistorySocket');
+module.exports = mongoose.model('historySocket', historySocketSchema);

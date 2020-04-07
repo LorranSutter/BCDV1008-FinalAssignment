@@ -1,20 +1,20 @@
-const Room = require('../models/Room');
-const HistoryChat = require('../models/HistoryChat');
-const HistorySocket = require('../models/HistorySocket');
+const room = require('../models/room');
+const historyChat = require('../models/historyChat');
+const historySocket = require('../models/historySocket');
 
 function roomCreate(name) {
-    let room = new Room({ name });
+    let newRoom = new room({ name });
 
-    room.save(function (err) {
+    newRoom.save(function (err) {
         if (err) {
             throw err;
         }
-        console.log('New Room: ' + room.name);
+        console.log('New Room: ' + newRoom.name);
     });
 }
 
 function historyChatCreate(user, room, message, date) {
-    let historyChat = new HistoryChat(
+    let newHistoryChat = new historyChat(
         {
             user,
             room,
@@ -23,16 +23,16 @@ function historyChatCreate(user, room, message, date) {
         }
     );
 
-    historyChat.save(function (err) {
+    newHistoryChat.save(function (err) {
         if (err) {
             throw err;
         }
-        console.log('New history chat: ' + historyChat.message);
+        console.log('New history chat: ' + newHistoryChat.message);
     });
 }
 
 function historySocketCreate(user, room, message, date) {
-    let historySocket = new HistorySocket(
+    let newHistorySocket = new historySocket(
         {
             user,
             room,
@@ -41,11 +41,11 @@ function historySocketCreate(user, room, message, date) {
         }
     );
 
-    historySocket.save(function (err) {
+    newHistorySocket.save(function (err) {
         if (err) {
             throw err;
         }
-        console.log('New history socket: ' + historySocket.message);
+        console.log('New history socket: ' + newHistorySocket.message);
     });
 }
 

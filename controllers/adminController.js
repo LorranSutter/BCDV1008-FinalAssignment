@@ -1,10 +1,10 @@
-const Room = require('../models/Room');
-const HistoryChat = require('../models/HistoryChat');
-const HistorySocket = require('../models/HistorySocket');
+const room = require('../models/room');
+const historyChat = require('../models/historyChat');
+const historySocket = require('../models/historySocket');
 
 exports.index = async (req, res, next) => {
-    const roomList = await Room.find();
-    const historyList = await HistoryChat
+    const roomList = await room.find();
+    const historyList = await historyChat
         // .skip(50)
         // .limit(10)
         .find()
@@ -21,7 +21,7 @@ exports.index = async (req, res, next) => {
 }
 
 exports.partialHistory = async (req, res, next) => {
-    const historyList = await HistoryChat
+    const historyList = await historyChat
         .find(req.query.roomId ? { "room": req.query.roomId } : {})
         .populate('room')
         .sort({ 'date': 1 });
@@ -36,7 +36,7 @@ exports.partialHistory = async (req, res, next) => {
 
 
 exports.socketEvents = async (req, res, next) => {
-    const historyList = await HistorySocket
+    const historyList = await historySocket
         .find()
         // .skip(50)
         // .limit(10)
