@@ -118,7 +118,6 @@ io.on('connection', socket => {
     ioDB.historySocketCreate(username, null, "socket disconnection", Date.now());
   });
 
-  // TODO Change welcome CSS
   socket.on('joinRoom', ({ username, room }) => {
     const user = userJoin(socket.id, username, room);
     socket.join(user.room);
