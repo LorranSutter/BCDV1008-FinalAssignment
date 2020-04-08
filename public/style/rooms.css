@@ -3,7 +3,6 @@
 body {
 	background-color: #e5e5e5;
 	min-width: 350px;
-	min-height: 475px;
 	font-family: Roboto;
 }
 
@@ -130,11 +129,14 @@ body {
 
 .rooms-list li .room-data-container h2 {
 	font-size: 42px;
+	max-width: 150px;
 }
 
-.rooms-list li .room-data-container h3 {
+.rooms-list li .door-button-container .Enter {
 	font-size: 24px;
-	font-weight: normal;
+	color: white;
+	font-family: Roboto;
+	display: none;
 }
 
 .rooms-list li .door-button-container button {
@@ -177,15 +179,38 @@ body {
 	}
 
 	.rooms-list li .room-data-container h2 {
-		font-size: 36px;
-	}
-	
-	.rooms-list li .room-data-container h3 {
-		font-size: 18px;
+		font-size: 32px;
 	}
 
 	.rooms-list li .door-button-container button {
 		height: 150px;
 		width: 150px;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.rooms-list li {
+		flex-direction: column;
+	}
+
+	.rooms-list li .room-data-container h2 {
+		font-size: 28px;
+		max-width: unset;
+	}
+
+	.rooms-list li .door-button-container .Enter {
+		display: block;
+	}
+
+	.rooms-list li .door-button-container img {
+		display: none;
+	}
+
+	.rooms-list li .door-button-container button {
+		padding: 0;
+		border-radius: 50px;
+		margin-top: 1em;
+		width: 100%;
+		height: 50px;
 	}
 }
