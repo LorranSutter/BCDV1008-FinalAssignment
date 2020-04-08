@@ -161,3 +161,19 @@ body {
         grid-row: unset;
     }
 }
+
+@media screen and (max-width: 400px) {
+	.login-container .content {
+		width: 100%;
+		border-radius: unset;
+	}
+
+	.login-container .content .form h1 {
+		font-size: 42px;
+	}
+	
+	.login-container .content .side-container input,
+	.login-container .content .side-container button {
+		width: 250px;
+	}
+}

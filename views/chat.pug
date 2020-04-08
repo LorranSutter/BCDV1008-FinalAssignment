@@ -17,7 +17,9 @@ block content
                     div(class="username-msg-wrapper")
                         span(class="username-msg") #{msg.user}
                         span(class="msg") #{msg.message}
-                    span(class="timestamp-msg")= moment(msg.date).format('hh:mm:ss a')
+                    div(class="timestamp-msg")
+                        span= moment(msg.date).format('MMM Do YY')
+                        span= moment(msg.date).format('hh:mm:ss a')
 
         div(class="input-msg-container")
             //- p User is typing...

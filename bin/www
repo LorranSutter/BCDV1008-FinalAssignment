@@ -99,15 +99,11 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-// TODO Handle db writting someway
-
 const io = require("socket.io")(server)
 
 // New connection 
 io.on('connection', socket => {
   console.log('Connected...');
-  //console.log(`Socket: ${socket.id}`);
-  // ioDB.historySocketCreate(socket)
 
   socket.on('connected', ({ username }) => {
     ioDB.historySocketCreate(username, null, "new socket connection", Date.now());

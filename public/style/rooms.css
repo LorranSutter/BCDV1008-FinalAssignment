@@ -170,7 +170,6 @@ body {
 	}
 
 	.rooms-list {
-		grid-template-columns: 1fr;
 		gap: 1em;
 	}
 
@@ -180,11 +179,18 @@ body {
 
 	.rooms-list li .room-data-container h2 {
 		font-size: 32px;
+		max-width: unset;
 	}
 
 	.rooms-list li .door-button-container button {
 		height: 150px;
 		width: 150px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.rooms-list {
+		grid-template-columns: 1fr;
 	}
 }
 
@@ -195,7 +201,6 @@ body {
 
 	.rooms-list li .room-data-container h2 {
 		font-size: 28px;
-		max-width: unset;
 	}
 
 	.rooms-list li .door-button-container .Enter {

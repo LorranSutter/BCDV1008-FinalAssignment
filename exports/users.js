@@ -1,7 +1,5 @@
 const users = [];
 
-// TODO Remove this file
-
 // User Join  
 function userJoin(id, username, room) {
   const user = { id, username, room };

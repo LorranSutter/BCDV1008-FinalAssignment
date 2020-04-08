@@ -1,10 +1,8 @@
 const moment = require('moment');
 
-// TODO This if this file is necessary
-
 function formatMessage(username, text) {
   return {
-    username, text, time: moment().format('h:mm a')
+    username, text, time1: moment().format('MMM Do YY'), time2: moment().format('hh:mm:ss a')
   };
 }
 

@@ -117,10 +117,13 @@ body {
 }
 
 .chat-container .chat-list-container .chat-msg .timestamp-msg {
+	display: flex;
+	flex-direction: column;
+
 	color: #999999;
 	font-style: italic;
 	margin-left: auto;
-	min-width: 185px;
+	min-width: 100px;
 	align-self: flex-start;
 	text-align: right;
 }
