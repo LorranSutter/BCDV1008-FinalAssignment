@@ -2,6 +2,13 @@
 
 Final Project for BCDV1008 - Full Stack Development III from [Blockchain Development](https://www.georgebrown.ca/programs/blockchain-development-program-t175/) program from [George Brown College](https://www.georgebrown.ca)
 
+<div align="center">
+
+<img src="../assets/preview.gif?raw=true" alt="Preview"/>
+
+</div>
+
+
 ### Dependencies:
 
 - [express](http://expressjs.com/)
