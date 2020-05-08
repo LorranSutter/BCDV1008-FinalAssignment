@@ -8,7 +8,9 @@ This application was developed using [Pug](https://pugjs.org/api/getting-started
 
 <div align="center">
 
-<img src="../assets/preview.gif?raw=true" alt="Preview"/>
+<img src="../assets/preview.gif?raw=true" alt="Preview Chat" height=200/>
+
+<img src="https://res.cloudinary.com/lorransutter/image/upload/v1588973266/FullChat_admin.gif" alt="Preview Admin">
 
 </div>
 
