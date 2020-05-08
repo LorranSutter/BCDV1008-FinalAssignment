@@ -4,8 +4,6 @@ Chat application using Node.js and Socket.IO as final Project for BCDV1008 - Ful
 
 This application was developed using [Pug](https://pugjs.org/api/getting-started.html) as frontend template, but also you can check this application implemented in ReactJS [here](https://github.com/LorranSutter/BCDV1017-FinalProject).
 
-<!-- https://www.figma.com/file/vnNwlNAq3iDuazxRo2eULX/Full-Chat?node-id=0%3A1 -->
-
 <div align="center">
 
 <img src="../assets/preview.gif?raw=true" alt="Preview Chat" height=200/>
@@ -14,11 +12,17 @@ This application was developed using [Pug](https://pugjs.org/api/getting-started
 
 </div>
 
+## :straight_ruler: Development pipeline
+
+It was time to start doing things in a better way. After watch some videos from [Rocketseat](https://www.youtube.com/channel/UCSfwM5u0Kce6Cce8_S72olg/featured), a tool that they always employs caught my eyes: [Figma](https://www.figma.com/): a free, powerfull and handy tool to aid designers to create, for example, wireframes for your new website. Wait a minute... I always get stuck with interface while developing, trying to create great interfaces and program at the same time. It was a great opportunity to establish a pipeline. This is the reason because Figma suits me perfectly.
+
+You can check my wireframe made in Figma [here](https://www.figma.com/file/vnNwlNAq3iDuazxRo2eULX/Full-Chat?node-id=0%3A1) (with some changes during the development of course).
+
 ## :pencil2: What is Socket?
 
-A socket is an endpoint of communication between two devices. In other words, when we have two people that want to talk to each other using their mobile phones, a connection is established and each of then becomes a socket, which will be able to send and receive messages in real-time.
+1. A socket is an endpoint of communication between two devices. In other words, when we have two people that want to talk to each other using their mobile phones, a connection is established and each of then becomes a socket, which will be able to send and receive messages in real-time.
 
-In this application, [Socket.IO](https://socket.io/) library was used to establish this communication and messages were able to be exchanged using events.
+...In this application, [Socket.IO](https://socket.io/) library was used to establish this communication and messages were able to be exchanged using events.
 
 ## :runner: How to run
 
@@ -43,6 +47,7 @@ npm run devstart
 
 ## :book: Resources and technologies :computer:
 
+- [Figma](https://www.figma.com/)
 - [ExpressJS](http://expressjs.com/)
 - [Moment](https://momentjs.com/)
 - [Mongoose](https://mongoosejs.com/)
