@@ -2,7 +2,7 @@
 
 Chat application using Node.js and Socket.IO as final Project for BCDV1008 - Full Stack Development III from [Blockchain Development](https://www.georgebrown.ca/programs/blockchain-development-program-t175/) program from [George Brown College](https://www.georgebrown.ca).
 
-You can check this application implemented in ReactJS [here](https://github.com/LorranSutter/BCDV1017-FinalProject).
+This application was developed using [Pug](https://pugjs.org/api/getting-started.html) as frontend template, but also you can check this application implemented in ReactJS [here](https://github.com/LorranSutter/BCDV1017-FinalProject).
 
 <!-- https://www.figma.com/file/vnNwlNAq3iDuazxRo2eULX/Full-Chat?node-id=0%3A1 -->
 
