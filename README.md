@@ -14,7 +14,7 @@ This application was developed using [Pug](https://pugjs.org/api/getting-started
 
 ## :straight_ruler: Development pipeline and challenges
 
-Dealing with anxiety during development It was time to start doing things in a better way.
+Dealing with anxiety during development it was something that already bothered me. It was time to start doing things in a better way.
 
 1. After watch some videos from [Rocketseat](https://www.youtube.com/channel/UCSfwM5u0Kce6Cce8_S72olg/featured), a tool that they always employs caught my eyes: [Figma](https://www.figma.com/): a free, powerfull and handy tool to aid designers to create, for example, wireframes for your new website. Wait a minute... I always get stuck with interface while developing, trying to create great interfaces and program at the same time. It was a great opportunity to establish a pipeline. This is the reason because Figma suits me perfectly.
 
