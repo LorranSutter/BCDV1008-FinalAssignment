@@ -53,6 +53,13 @@ npm run start
 npm run devstart
 ```
 
+If you want to use your own mongodb account, replace the following variable with your own mongo URL:
+
+```sh
+# Go to db/config.js
+MONGOURI = <your-url>
+```
+
 ## :book: Resources and technologies :computer:
 
 - [Figma](https://www.figma.com/)
