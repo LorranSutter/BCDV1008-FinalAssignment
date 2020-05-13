@@ -60,6 +60,12 @@ If you want to use your own mongodb account, replace the following variable with
 MONGOURI = <your-url>
 ```
 
+Then you may populate your database using the following command:
+
+```sh
+node populatedb.js
+```
+
 ## :book: Resources and technologies :computer:
 
 - [Figma](https://www.figma.com/)
