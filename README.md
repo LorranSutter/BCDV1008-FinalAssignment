@@ -66,14 +66,16 @@ Then you may populate your database using the following command:
 node populatedb.js
 ```
 
-## :book: Resources and technologies :computer:
+## :book: Resources
+- [Figma](https://www.figma.com/) - digital design and prototyping tool
 
-- [Figma](https://www.figma.com/)
-- [ExpressJS](http://expressjs.com/)
-- [Moment](https://momentjs.com/)
-- [Mongoose](https://mongoosejs.com/)
-- [Pug](https://pugjs.org/api/getting-started.html)
-- [Socket.IO](https://socket.io/)
-- [Async](https://caolan.github.io/async/v3/)
-- [ESlint](https://eslint.org/)
-- [Nodemon](https://www.npmjs.com/package/nodemon)
+## :computer: Technologies
+
+- [Express.js](http://expressjs.com/) - web application framework
+- [Moment.js](https://momentjs.com/) - parsing, validating, manipulating and displaying dates and times
+- [Mongoose](https://mongoosejs.com/) - object data modeling (ODM) library for MongoDB and Node.js
+- [Pug](https://pugjs.org/api/getting-started.html) - template engine for Node.js and for the browser
+- [Socket.IO](https://socket.io/) - real time engine using web sockers
+- [Async](https://caolan.github.io/async/v3/) - library to perform asynchronous operations
+- [ESlint](https://eslint.org/) - pluggable JS linter
+- [Nodemon](https://www.npmjs.com/package/nodemon) - monitor and restart server after changes
